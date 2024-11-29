@@ -20,40 +20,6 @@ def initialize_opengl():
     glLoadIdentity()
     glTranslatef(0, 0, -11)  # Retroceder la cámara
 
-def draw_triangle(rows):
-    """Dibuja el Triángulo de Pascal utilizando círculos con OpenGL."""
-    triangle = pascal_triangle(rows)
-    for i, row in enumerate(triangle):
-        for j, value in enumerate(row):
-            x = j - i / 2.0  # Coordenada X con desplazamiento horizontal
-            y = -i          # Coordenada Y (filas)
-            z = 0           # Coordenada Z fija
-
-            # Transformación para posicionar cada círculo
-            glPushMatrix()
-            glTranslatef(x, y, z)  # Traslación
-            draw_circle(0, 0, 0.2)  # Dibujar un círculo en la posición calculada
-            glPopMatrix()
-
-def draw_circle(x, y, radius):
-    """Dibuja un círculo en la posición dada."""
-    glBegin(GL_POLYGON)
-    for angle in range(0, 360, 10):  # Incrementos para suavidad
-        rad = math.radians(angle)
-        glVertex3f(x + math.cos(rad) * radius, y + math.sin(rad) * radius, 0)
-    glEnd()
-
-def pascal_triangle(rows):
-    """Genera el triángulo de Pascal como lista de listas."""
-    triangle = []
-    for i in range(rows):
-        row = [1]
-        if triangle:
-            last_row = triangle[-1]
-            row.extend([last_row[j] + last_row[j + 1] for j in range(len(last_row) - 1)])
-            row.append(1)
-        triangle.append(row)
-    return triangle
 
 def main():
     """Función principal."""
