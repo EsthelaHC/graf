@@ -109,7 +109,7 @@ def draw_rectangular_windows():
     """Dibuja ventanas rectangulares con marcos y divisiones."""
     glColor3f(0.6, 0.8, 1.0)  # Azul claro para el vidrio
 
-    # Ventana izquierda (ajustada)
+    # Ventana izquierda
     glBegin(GL_QUADS)
     glVertex3f(-0.9, 1.5, 1.01)  # Punto superior izquierdo 
     glVertex3f(-0.4, 1.5, 1.01)  # Punto superior derecho 
@@ -117,7 +117,7 @@ def draw_rectangular_windows():
     glVertex3f(-0.9, 2.5, 1.01)  # Punto inferior izquierdo 
     glEnd()
 
-    # Ventana derecha (ajustada)
+    # Ventana derecha
     glBegin(GL_QUADS)
     glVertex3f(0.4, 1.5, 1.01)   # Punto superior izquierdo
     glVertex3f(0.9, 1.5, 1.01)   # Punto superior derecho
@@ -190,10 +190,10 @@ def draw_scene():
 
     # Dibujar las casas en diferentes posiciones
     positions = [
-        (2, 0, 3),  # Casa 1
-        (-6, 0, 5)
-        
-        
+        (-5, 0, -5),  # casa 1
+        (5, 0, -5),   # casa 2
+        (-5, 0, 5),   # casa 3
+        (5, 0, 5),    # casa 4
     ]
     for pos in positions:
         glPushMatrix()
